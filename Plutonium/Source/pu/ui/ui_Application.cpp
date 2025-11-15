@@ -54,7 +54,7 @@ namespace pu::ui
     int Application::CreateShowDialog(const std::string& Title, const std::string& Content, std::vector<std::string> Options, bool UseLastOptionAsCancel, const std::string& Icon)
     {
         Dialog dlg(Title, Content);
-        for(s32 i = 0; i < Options.size(); i++)
+        for(uint64_t i = 0; i < Options.size(); i++)
         {
             if(UseLastOptionAsCancel && (i == Options.size() - 1)) dlg.SetCancelOption(Options[i]);
             else dlg.AddOption(Options[i]);

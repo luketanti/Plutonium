@@ -31,7 +31,7 @@ CFLAGS	:=	-g -D__SWITCH__ \
 			$(ARCH) \
 
 CFLAGS	+=	$(INCLUDE)
-CFLAGS  +=  `freetype-config --cflags` -Wall
+CFLAGS	+=	`$(PREFIX)pkg-config --cflags freetype2` -Wall
 
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++17 -Wall
 

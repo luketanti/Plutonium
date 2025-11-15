@@ -114,10 +114,10 @@ namespace pu::ui
             bool ok = app_ref->CallForRenderWithRenderOver([&](render::Renderer::Ref &Drawer) -> bool
             {
                 const auto k = app_ref->GetButtonsDown();
-                const auto h = app_ref->GetButtonsHeld();
+                // const auto h = app_ref->GetButtonsHeld();
                 const auto tch_state = app_ref->GetTouchState();
-                const auto tch_x = tch_state.touches[0].x;
-                const auto tch_y = tch_state.touches[0].y;
+                // const auto tch_x = tch_state.touches[0].x;
+                // const auto tch_y = tch_state.touches[0].y;
                 if(k & HidNpadButton_AnyLeft)
                 {
                     if(this->osel > 0)
@@ -173,8 +173,8 @@ namespace pu::ui
                 }
                 s32 bw = dw;
                 s32 bh = dh;
-                s32 fw = bw - (r * 2);
-                s32 fh = bh - (r * 2);
+                // s32 fw = bw - (r * 2);
+                // s32 fh = bh - (r * 2);
                 Color clr = { 225, 225, 225, initfact };
                 s32 aclr = initfact;
                 if(aclr < 0) aclr = 0;
@@ -243,7 +243,7 @@ namespace pu::ui
             });
             if(!ok)
             {
-                app_ref->CallForRenderWithRenderOver([&](render::Renderer::Ref &Drawer) -> bool {});
+                app_ref->CallForRenderWithRenderOver([](render::Renderer::Ref &Drawer) -> bool { return true; });
                 break;
             }
         }

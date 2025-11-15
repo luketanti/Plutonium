@@ -53,11 +53,6 @@ typedef void (*VoidFn)(void);       ///< Function without arguments nor return v
 #define BIT(n) (1U<<(n))
 #endif
 
-/// Packs a struct so that it won't include padding bytes.
-#ifndef PACKED
-#define PACKED     __attribute__((packed))
-#endif
-
 /// Marks a function as not returning, for the purposes of compiler optimization.
 #ifndef NORETURN
 #define NORETURN   __attribute__((noreturn))
