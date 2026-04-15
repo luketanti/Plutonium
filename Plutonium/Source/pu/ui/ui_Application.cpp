@@ -48,7 +48,11 @@ namespace pu::ui
 
     s32 Application::ShowDialog(Dialog::Ref &ToShow)
     {
-        return ToShow->Show(this->rend, this);
+        const auto result = ToShow->Show(this->rend, this);
+        padConfigureInput(1, HidNpadStyleSet_NpadStandard);
+        padInitializeDefault(&this->input_pad);
+        padUpdate(&this->input_pad);
+        return result;
     }
 
     int Application::CreateShowDialog(const std::string& Title, const std::string& Content, std::vector<std::string> Options, bool UseLastOptionAsCancel, const std::string& Icon)
@@ -61,6 +65,9 @@ namespace pu::ui
         }
         if(!Icon.empty()) dlg.SetIcon(Icon);
         int opt = dlg.Show(this->rend, this);
+        padConfigureInput(1, HidNpadStyleSet_NpadStandard);
+        padInitializeDefault(&this->input_pad);
+        padUpdate(&this->input_pad);
         if(dlg.UserCancelled()) opt = -1;
         else if(!dlg.IsOk()) opt = -2;
         return opt;
